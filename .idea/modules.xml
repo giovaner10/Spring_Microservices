@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spring_Microservices.iml" filepath="$PROJECT_DIR$/.idea/Spring_Microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hr-payroll/hr-payroll.iml" filepath="$PROJECT_DIR$/hr-payroll/hr-payroll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rh-work/rh-work.iml" filepath="$PROJECT_DIR$/rh-work/rh-work.iml" />
+    </modules>
+  </component>
+</project>
