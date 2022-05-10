@@ -16,8 +16,8 @@ import java.util.Map;
 @Service
 public class PaymentService {
 
-    @Value("${hr-worker.host}")
-    private String workerHost;
+    //@Value("${hr-worker.host}")
+    //private String workerHost;
 
     /*@Autowired
     private RestTemplate restTemplate;*/
@@ -32,8 +32,8 @@ public class PaymentService {
 
         Worker worker = restTemplate.getForObject(workerHost + "/{id}", Worker.class, uriVariables );
         return new Payment(worker.getName(), worker.getDailyIncome(), days);*/
-        Worker worker = workerFeignClient.findById(workId + 1l).getBody();
-        return new Payment("Nome encontrado: "+worker.getName(), worker.getDailyIncome(), days);
+        Worker worker = workerFeignClient.findById(workId).getBody();
+        return new Payment(worker.getName(), worker.getDailyIncome(), days);
 
     }
 }

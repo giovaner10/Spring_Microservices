@@ -4,6 +4,8 @@ import com.microservices.rhwork.entities.Worker;
 import com.microservices.rhwork.repositories.WorkerRepository;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +19,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/workers")
 @AllArgsConstructor
+@Log4j2
 public class WorkerResources {
 
+    private Environment env;
     private WorkerRepository repository;
 
     @GetMapping
@@ -30,6 +34,7 @@ public class WorkerResources {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id){
+        log.info("PORT:" + env.getProperty("local.server.port"));
         //return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
         Worker byId = repository.findById(id).get();
         return ResponseEntity.ok(byId);

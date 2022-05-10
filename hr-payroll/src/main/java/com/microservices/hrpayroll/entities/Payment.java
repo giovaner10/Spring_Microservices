@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Payment {
 
@@ -18,5 +17,11 @@ public class Payment {
 
     public double getTotal() {
         return days * dailyIncome;
+    }
+
+    public Payment(String name, Double dailyIncome, Integer days) {
+        this.name = name;
+        this.dailyIncome = dailyIncome;
+        this.days = days;
     }
 }
